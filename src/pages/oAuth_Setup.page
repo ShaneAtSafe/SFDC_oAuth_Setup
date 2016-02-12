@@ -1,0 +1,24 @@
+<apex:page showHeader="true" sidebar="true" controller="oAuth_Controller" title="Generate Internal oAuth Token">
+	<apex:form id="oAuthForm">
+		<apex:pageMessages id="page_message"/>
+		<apex:pageBlock id="block_step1" title="Generate Internal oAuth Token">
+			<apex:panelGroup rendered="{!show_step1}"	id="section_step1">
+				<p><label for="ClientKey">Consumer Key:</label><apex:inputText value="{!client_key}" style="width:800px"/></p>
+				<p><label for="Scope">Scope:</label><apex:inputText value="{!scope}"/>&nbsp;
+				<a href="https://help.salesforce.com/HTViewHelpDoc?id=remoteaccess_oauth_scopes.htm&language=en_US" target="_new">Scope Parameter Values</a></p>
+
+				<apex:commandButton value="Next" action="{!generate_oAuth_step1}" rendered="{!show_step1}"/>
+			</apex:panelGroup>
+			<apex:panelGroup rendered="{!show_step2}"	id="section_step2">
+				<p><label for="AccessToken">Authorization Code: </label><apex:outputText value="{!auth_code}"/></p>
+				<p><label for="ClientKey">Consumer Key:</label><apex:inputText value="{!client_key}" style="width:800px"/></p>
+				<p><label for="ClientSecret">Client Secret:</label><apex:inputText value="{!client_secret}" style="width:400px"/></p>
+				<apex:commandButton value="Next" action="{!generate_oAuth_step2}" rendered="{!show_step2}"/>
+			</apex:panelGroup>
+			<apex:panelGroup id="get_token_result" rendered="{!show_step3}">
+				<p><label for="AccessToken">Access Token: </label><apex:outputText value="{!access_token}"/></p>
+				<p><label for="RefreshToken">Refresh Token: </label><apex:outputText value="{!refresh_token}"/></p>
+			</apex:panelGroup>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>
