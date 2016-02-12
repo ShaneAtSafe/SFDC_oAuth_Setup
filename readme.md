@@ -1,6 +1,6 @@
 Salesforce code to generate oAuth Access and Refresh Tokens without another application.
 
-Requires an AuthSettings custom object, where you put the URL of your salesforce instance. I.E. companyname.my.salesforce.com.
+Requires an AuthSettings__c custom setting, where you put the URL of your salesforce instance. I.E. companyname.my.salesforce.com.
 
 References:
 https://www.salesforce.com/us/developer/docs/api_rest/Content/intro_understanding_web_server_oauth_flow.htm
